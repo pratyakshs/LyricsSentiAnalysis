@@ -1,5 +1,5 @@
-__author__ = Siddhartha Dutta
-__date__ = August 23, 2014
+__author__ = "Siddhartha Dutta"
+__date__ = "August 23, 2014"
 
 import os
 import sys
@@ -10,6 +10,10 @@ def stem_lyrics(lyrics):
     # remove end of lines
     altered_lyrics = lyrics.replace('\r', '\n').lower()
     # custom replacements
+    altered_lyrics = altered_lyrics.replace(" don't ", " do not ")
+    altered_lyrics = altered_lyrics.replace(" won't ", " will not ")
+    altered_lyrics = altered_lyrics.replace(" wouldn't ", " would not ")
+    altered_lyrics = altered_lyrics.replace(" hadn't ", " had not ")
     altered_lyrics = altered_lyrics.replace(" he's ", " he is ")
     altered_lyrics = altered_lyrics.replace(" she's ", " she is ")
     altered_lyrics = altered_lyrics.replace(" it's ", " it is ")
@@ -30,7 +34,8 @@ def stem_lyrics(lyrics):
     # replacing each word by its stem
     stemmed_lyrics = ''
     for word in altered_lyrics:
-        stemmed_lyrics += stem(word)
+        # stemmed_lyrics += stem(word)
+        stemmed_lyrics += word
     
     return stemmed_lyrics
 
@@ -43,7 +48,7 @@ if __name__ == '__main__':
 
     path = sys.argv[1]
     input_path = path + '/LyricsCorpus'
-    output_path = path + '/NewLyricsCorpus'
+    output_path = path + '/NoStemmingLyricsCorpus'
     if not os.path.exists(output_path): os.makedirs(output_path)
     else: 
         shutil.rmtree(output_path) 
