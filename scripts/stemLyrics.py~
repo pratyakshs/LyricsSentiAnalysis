@@ -1,5 +1,5 @@
-#__author__ = "Siddhartha Dutta"
-#__date__ = "August 23, 2014"
+__author__ = "Siddhartha Dutta"
+__date__ = "August 23, 2014"
 
 import os
 import sys
